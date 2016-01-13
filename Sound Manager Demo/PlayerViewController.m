@@ -49,11 +49,35 @@
 }
 
 #pragma MARK - UITableViewDelegate
+- (nullable NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SoundManager *manager = [SoundManager sharedManager];
+    Sound *nextSound = [manager soundAtIndex:indexPath.row];
+    __weak UITableView *wTableView = tableView;
+    
+    UITableViewRowAction *playNextAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
+                                                                              title:@"Next"
+                                                                            handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+                                                                                [manager playSound:nextSound beginImmediately:NO];
+                                                                                [wTableView setEditing:NO animated:YES];
+                                                                            }];
+    
+    UITableViewRowAction *playLastAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
+                                                                              title:@"Last"
+                                                                            handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+                                                                                [manager enqueueSound:nextSound];
+                                                                                [wTableView setEditing:NO animated:YES];
+                                                                            }];
+    [playNextAction setBackgroundColor:[UIColor blueColor]];
+    [playLastAction setBackgroundColor:[UIColor greenColor]];
+    return @[playNextAction, playLastAction];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SoundManager *manager = [SoundManager sharedManager];
     Sound *soundToPlay = [manager soundAtIndex:indexPath.row];
-    [manager playSound:soundToPlay beginImmediately:NO];
+    [manager playSound:soundToPlay beginImmediately:YES];
 }
 
 @end
