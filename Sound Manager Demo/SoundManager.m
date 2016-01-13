@@ -20,15 +20,26 @@
 @implementation SoundManager
 @synthesize availableSounds = _availableSounds;
 
+- (BOOL)isPlaying
+{
+    return self.player && self.player.isPlaying;
+}
+
+#pragma MARK - Lifecycle
 + (_Nonnull instancetype)sharedManager
 {
     static SoundManager *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [[SoundManager alloc] init];
+        manager = [[SoundManager alloc] _init];
     });
     
     return manager;
+}
+
+- (_Nonnull instancetype)_init
+{
+    return self = [super init];
 }
 
 - (NSMutableArray<Sound *> * _Nonnull)availableSounds
@@ -86,6 +97,45 @@
     return [self.availableSounds objectAtIndex:index];
 }
 
+#pragma MARK - Player state
+
+- (BOOL)resume
+{
+    if (self.player && !self.player.playing) {
+        return [self.player play];
+    }
+    
+    return NO;
+}
+
+- (void)pause
+{
+    if (self.player) {
+        [self.player pause];
+    }
+}
+
+- (void)skip
+{
+    [self playNextSound];
+}
+
+- (void)playNextSound
+{
+    Sound *nextSound = self.queue.firstObject;
+    if (nextSound) {
+        [self.queue removeObjectAtIndex:0];
+        [self playSound:nextSound];
+    }
+}
+
+- (void)stop
+{
+    if (self.player) {
+        [self.player stop];
+    }
+}
+
 - (void)playSound:(Sound * _Nonnull)sound
 {
     if (self.player) {
@@ -106,6 +156,19 @@
 
 - (void)playSound:(Sound * _Nonnull)sound beginImmediately:(BOOL)immediate
 {
+    if (immediate) {
+        [self playSound:sound];
+    } else {
+        if (self.queue.count == 0) {
+            if (self.player && self.player.playing) {
+                [self.queue insertObject:sound atIndex:0];
+            } else {
+                [self playSound:sound];
+            }
+        } else {
+            [self.queue insertObject:sound atIndex:0];
+        }
+    }
 }
 
 - (void)enqueueSound:(Sound * _Nonnull)sound
@@ -121,12 +184,7 @@
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-    NSLog(@"Done playing sound");
-    Sound *nextSound = self.queue.firstObject;
-    if (nextSound) {
-        [self.queue removeObjectAtIndex:0];
-        [self playSound:nextSound];
-    }
+    [self playNextSound];
 }
 
 - (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error
