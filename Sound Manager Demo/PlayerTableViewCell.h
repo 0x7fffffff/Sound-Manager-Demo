@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  PlayerTableViewCell.h
 //  Sound Manager Demo
 //
 //  Created by Michael MacCallum on 1/13/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface PlayerTableViewCell : UITableViewCell
 
 @end
-
