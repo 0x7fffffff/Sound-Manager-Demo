@@ -10,10 +10,35 @@
 
 @implementation GradientView
 
-- (void)awakeFromNib
+- (instancetype)init
 {
-    [super awakeFromNib];
+    if (self = [super init]) {
+        [self applyDefaultGradient];
+    }
     
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        [self applyDefaultGradient];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        [self applyDefaultGradient];
+    }
+    
+    return self;
+}
+
+- (void)applyDefaultGradient
+{
     CAGradientLayer *gradientLayer = (CAGradientLayer *)self.layer;
     
     UIColor *topColor = [UIColor colorWithRed:32.0 / 255.0
