@@ -8,16 +8,30 @@
 
 #import "PlayerTableViewCell.h"
 
+@interface PlayerTableViewCell ()
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageWidthConstraint;
+@property (weak, nonatomic) IBOutlet UIImageView *playingIconImageView;
+
+@end
+
 @implementation PlayerTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)layoutIfNeeded
+{
+    [super layoutIfNeeded];
+
+    self.nameLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+    self.queuePositionLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
 }
 
 @end
