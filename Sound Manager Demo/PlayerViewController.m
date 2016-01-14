@@ -10,6 +10,7 @@
 #import "SoundManager.h"
 #import "Sound.h"
 #import "PlayerTableViewCell.h"
+#import "VersionChecks.h"
 
 @interface PlayerViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -23,13 +24,50 @@
 #pragma MARK - Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 60.0;
+    
     [[SoundManager sharedManager] loadDefaultSoundsReplaceExisting:NO];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(contentSizeCategoryDidChangeNotification:)
+                                                 name:UIContentSizeCategoryDidChangeNotification
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIContentSizeCategoryDidChangeNotification
+                                                  object:nil];
+}
+
+- (BOOL)respondsToSelector:(SEL)aSelector
+{
+    static BOOL shouldRespond;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shouldRespond = SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0");
+    });
+
+    if (aSelector == @selector(tableView:editActionsForRowAtIndexPath:)) {
+        return shouldRespond;
+    }
+    
+    return [super respondsToSelector:aSelector];
+}
+
+- (void)contentSizeCategoryDidChangeNotification:(NSNotification *)notification
+{
+    NSLog(@"content size changed");
+    [self.tableView reloadRowsAtIndexPaths:self.tableView.indexPathsForVisibleRows
+                          withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma MARK - UITableViewDataSource
@@ -43,7 +81,9 @@
     PlayerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayerCellIdentifier"
                                                                 forIndexPath:indexPath];
     Sound *currentSound = [[SoundManager sharedManager].availableSounds objectAtIndex:indexPath.row];
-    cell.textLabel.text = currentSound.fileName;
+//    cell.textLabel.text = currentSound.fileName;
+    cell.nameLabel.text = currentSound.fileName;
+    [cell layoutIfNeeded];
     
     return cell;
 }
@@ -68,8 +108,9 @@
                                                                                 [manager enqueueSound:nextSound];
                                                                                 [wTableView setEditing:NO animated:YES];
                                                                             }];
-    [playNextAction setBackgroundColor:[UIColor blueColor]];
-    [playLastAction setBackgroundColor:[UIColor greenColor]];
+    playNextAction.backgroundColor = self.view.tintColor;
+    playLastAction.backgroundColor = self.view.tintColor;
+    
     return @[playNextAction, playLastAction];
 }
 
@@ -78,6 +119,8 @@
     SoundManager *manager = [SoundManager sharedManager];
     Sound *soundToPlay = [manager soundAtIndex:indexPath.row];
     [manager playSound:soundToPlay beginImmediately:YES];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
