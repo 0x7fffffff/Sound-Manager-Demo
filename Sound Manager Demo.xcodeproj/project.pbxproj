@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00B1B5B51C471F9800784F4C /* ControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1B5B41C471F9800784F4C /* ControlView.m */; };
+		00B1B5B81C4720C900784F4C /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1B5B71C4720C900784F4C /* GradientView.m */; };
+		00B1B5BB1C472CE500784F4C /* PlayerTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1B5BA1C472CE500784F4C /* PlayerTableViewDelegate.m */; };
+		00B1B5BE1C472CF300784F4C /* PlayerTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1B5BD1C472CF300784F4C /* PlayerTableViewDataSource.m */; };
 		00E669751C46C41700F97EAC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E669741C46C41700F97EAC /* main.m */; };
 		00E669781C46C41700F97EAC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E669771C46C41700F97EAC /* AppDelegate.m */; };
 		00E6697B1C46C41700F97EAC /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E6697A1C46C41700F97EAC /* PlayerViewController.m */; };
@@ -39,8 +43,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00B1B5B31C471F9800784F4C /* ControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlView.h; sourceTree = "<group>"; };
+		00B1B5B41C471F9800784F4C /* ControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlView.m; sourceTree = "<group>"; };
 		00B1B5B61C4720C900784F4C /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
 		00B1B5B71C4720C900784F4C /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		00B1B5B91C472CE500784F4C /* PlayerTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewDelegate.h; sourceTree = "<group>"; };
+		00B1B5BA1C472CE500784F4C /* PlayerTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewDelegate.m; sourceTree = "<group>"; };
+		00B1B5BC1C472CF300784F4C /* PlayerTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewDataSource.h; sourceTree = "<group>"; };
+		00B1B5BD1C472CF300784F4C /* PlayerTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewDataSource.m; sourceTree = "<group>"; };
+		00B1B5C21C4743CC00784F4C /* VersionChecks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionChecks.h; sourceTree = "<group>"; };
 		00E669701C46C41600F97EAC /* Sound Manager Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sound Manager Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E669741C46C41700F97EAC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		00E669761C46C41700F97EAC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,6 +102,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00B1B5BF1C472D5E00784F4C /* PlayerTableView */ = {
+			isa = PBXGroup;
+			children = (
+				00B1B5B91C472CE500784F4C /* PlayerTableViewDelegate.h */,
+				00B1B5BA1C472CE500784F4C /* PlayerTableViewDelegate.m */,
+				00B1B5BC1C472CF300784F4C /* PlayerTableViewDataSource.h */,
+				00B1B5BD1C472CF300784F4C /* PlayerTableViewDataSource.m */,
+				00E669AF1C46D1E800F97EAC /* PlayerTableViewCell.h */,
+				00E669B01C46D1E800F97EAC /* PlayerTableViewCell.m */,
+			);
+			name = PlayerTableView;
+			sourceTree = "<group>";
+		};
 		00E669671C46C41600F97EAC = {
 			isa = PBXGroup;
 			children = (
@@ -119,8 +143,11 @@
 				00E669771C46C41700F97EAC /* AppDelegate.m */,
 				00E669791C46C41700F97EAC /* PlayerViewController.h */,
 				00E6697A1C46C41700F97EAC /* PlayerViewController.m */,
-				00E669AF1C46D1E800F97EAC /* PlayerTableViewCell.h */,
-				00E669B01C46D1E800F97EAC /* PlayerTableViewCell.m */,
+				00B1B5B61C4720C900784F4C /* GradientView.h */,
+				00B1B5B71C4720C900784F4C /* GradientView.m */,
+				00B1B5B31C471F9800784F4C /* ControlView.h */,
+				00B1B5B41C471F9800784F4C /* ControlView.m */,
+				00B1B5BF1C472D5E00784F4C /* PlayerTableView */,
 				00E669AE1C46CF4100F97EAC /* Sound Management */,
 				00E6697C1C46C41700F97EAC /* Main.storyboard */,
 				00E6697F1C46C41700F97EAC /* Assets.xcassets */,
@@ -300,11 +327,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00B1B5B51C471F9800784F4C /* ControlView.m in Sources */,
 				00E6697B1C46C41700F97EAC /* PlayerViewController.m in Sources */,
+				00B1B5B81C4720C900784F4C /* GradientView.m in Sources */,
+				00B1B5BE1C472CF300784F4C /* PlayerTableViewDataSource.m in Sources */,
 				00E669A81C46C43C00F97EAC /* SoundManager.m in Sources */,
 				00E669B11C46D1E800F97EAC /* PlayerTableViewCell.m in Sources */,
 				00E669781C46C41700F97EAC /* AppDelegate.m in Sources */,
 				00E669AD1C46C61500F97EAC /* Sound.m in Sources */,
+				00B1B5BB1C472CE500784F4C /* PlayerTableViewDelegate.m in Sources */,
 				00E669751C46C41700F97EAC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,6 +562,7 @@
 				00E6699F1C46C41700F97EAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00E669A01C46C41700F97EAC /* Build configuration list for PBXNativeTarget "Sound Manager DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -539,6 +571,7 @@
 				00E669A21C46C41700F97EAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00E669A31C46C41700F97EAC /* Build configuration list for PBXNativeTarget "Sound Manager DemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -547,6 +580,7 @@
 				00E669A51C46C41700F97EAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
