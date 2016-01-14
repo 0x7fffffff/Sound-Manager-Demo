@@ -13,12 +13,11 @@
 		00B1B5BE1C472CF300784F4C /* PlayerTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1B5BD1C472CF300784F4C /* PlayerTableViewDataSource.m */; };
 		00E669751C46C41700F97EAC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E669741C46C41700F97EAC /* main.m */; };
 		00E669781C46C41700F97EAC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E669771C46C41700F97EAC /* AppDelegate.m */; };
-		00E6697B1C46C41700F97EAC /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E6697A1C46C41700F97EAC /* PlayerViewController.m */; };
+		00E6697B1C46C41700F97EAC /* PlayerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E6697A1C46C41700F97EAC /* PlayerTableViewController.m */; };
 		00E6697E1C46C41700F97EAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00E6697C1C46C41700F97EAC /* Main.storyboard */; };
 		00E669801C46C41700F97EAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00E6697F1C46C41700F97EAC /* Assets.xcassets */; };
 		00E669831C46C41700F97EAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00E669811C46C41700F97EAC /* LaunchScreen.storyboard */; };
 		00E6698E1C46C41700F97EAC /* Sound_Manager_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E6698D1C46C41700F97EAC /* Sound_Manager_DemoTests.m */; };
-		00E669991C46C41700F97EAC /* Sound_Manager_DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E669981C46C41700F97EAC /* Sound_Manager_DemoUITests.m */; };
 		00E669A81C46C43C00F97EAC /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E669A71C46C43C00F97EAC /* SoundManager.m */; };
 		00E669AA1C46C5E400F97EAC /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 00E669A91C46C5E400F97EAC /* Sounds */; };
 		00E669AD1C46C61500F97EAC /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E669AC1C46C61500F97EAC /* Sound.m */; };
@@ -27,13 +26,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		00E6698A1C46C41700F97EAC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 00E669681C46C41600F97EAC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 00E6696F1C46C41600F97EAC;
-			remoteInfo = "Sound Manager Demo";
-		};
-		00E669951C46C41700F97EAC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 00E669681C46C41600F97EAC /* Project object */;
 			proxyType = 1;
@@ -56,8 +48,8 @@
 		00E669741C46C41700F97EAC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		00E669761C46C41700F97EAC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		00E669771C46C41700F97EAC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		00E669791C46C41700F97EAC /* PlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
-		00E6697A1C46C41700F97EAC /* PlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		00E669791C46C41700F97EAC /* PlayerTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewController.h; sourceTree = "<group>"; };
+		00E6697A1C46C41700F97EAC /* PlayerTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewController.m; sourceTree = "<group>"; };
 		00E6697D1C46C41700F97EAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00E6697F1C46C41700F97EAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00E669821C46C41700F97EAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,9 +57,6 @@
 		00E669891C46C41700F97EAC /* Sound Manager DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sound Manager DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E6698D1C46C41700F97EAC /* Sound_Manager_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sound_Manager_DemoTests.m; sourceTree = "<group>"; };
 		00E6698F1C46C41700F97EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E669941C46C41700F97EAC /* Sound Manager DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sound Manager DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		00E669981C46C41700F97EAC /* Sound_Manager_DemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sound_Manager_DemoUITests.m; sourceTree = "<group>"; };
-		00E6699A1C46C41700F97EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E669A61C46C43C00F97EAC /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		00E669A71C46C43C00F97EAC /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		00E669A91C46C5E400F97EAC /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
@@ -86,13 +75,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		00E669861C46C41700F97EAC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		00E669911C46C41700F97EAC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -120,7 +102,6 @@
 			children = (
 				00E669721C46C41600F97EAC /* Sound Manager Demo */,
 				00E6698C1C46C41700F97EAC /* Sound Manager DemoTests */,
-				00E669971C46C41700F97EAC /* Sound Manager DemoUITests */,
 				00E669711C46C41600F97EAC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,7 +111,6 @@
 			children = (
 				00E669701C46C41600F97EAC /* Sound Manager Demo.app */,
 				00E669891C46C41700F97EAC /* Sound Manager DemoTests.xctest */,
-				00E669941C46C41700F97EAC /* Sound Manager DemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,8 +121,8 @@
 				00B1B5C21C4743CC00784F4C /* VersionChecks.h */,
 				00E669761C46C41700F97EAC /* AppDelegate.h */,
 				00E669771C46C41700F97EAC /* AppDelegate.m */,
-				00E669791C46C41700F97EAC /* PlayerViewController.h */,
-				00E6697A1C46C41700F97EAC /* PlayerViewController.m */,
+				00E669791C46C41700F97EAC /* PlayerTableViewController.h */,
+				00E6697A1C46C41700F97EAC /* PlayerTableViewController.m */,
 				00B1B5B61C4720C900784F4C /* GradientView.h */,
 				00B1B5B71C4720C900784F4C /* GradientView.m */,
 				00B1B5B31C471F9800784F4C /* ControlView.h */,
@@ -174,15 +154,6 @@
 				00E6698F1C46C41700F97EAC /* Info.plist */,
 			);
 			path = "Sound Manager DemoTests";
-			sourceTree = "<group>";
-		};
-		00E669971C46C41700F97EAC /* Sound Manager DemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				00E669981C46C41700F97EAC /* Sound_Manager_DemoUITests.m */,
-				00E6699A1C46C41700F97EAC /* Info.plist */,
-			);
-			path = "Sound Manager DemoUITests";
 			sourceTree = "<group>";
 		};
 		00E669AE1C46CF4100F97EAC /* Sound Management */ = {
@@ -234,24 +205,6 @@
 			productReference = 00E669891C46C41700F97EAC /* Sound Manager DemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		00E669931C46C41700F97EAC /* Sound Manager DemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 00E669A31C46C41700F97EAC /* Build configuration list for PBXNativeTarget "Sound Manager DemoUITests" */;
-			buildPhases = (
-				00E669901C46C41700F97EAC /* Sources */,
-				00E669911C46C41700F97EAC /* Frameworks */,
-				00E669921C46C41700F97EAC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				00E669961C46C41700F97EAC /* PBXTargetDependency */,
-			);
-			name = "Sound Manager DemoUITests";
-			productName = "Sound Manager DemoUITests";
-			productReference = 00E669941C46C41700F97EAC /* Sound Manager DemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -265,10 +218,6 @@
 						CreatedOnToolsVersion = 7.2;
 					};
 					00E669881C46C41700F97EAC = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = 00E6696F1C46C41600F97EAC;
-					};
-					00E669931C46C41700F97EAC = {
 						CreatedOnToolsVersion = 7.2;
 						TestTargetID = 00E6696F1C46C41600F97EAC;
 					};
@@ -289,7 +238,6 @@
 			targets = (
 				00E6696F1C46C41600F97EAC /* Sound Manager Demo */,
 				00E669881C46C41700F97EAC /* Sound Manager DemoTests */,
-				00E669931C46C41700F97EAC /* Sound Manager DemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -313,13 +261,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		00E669921C46C41700F97EAC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -328,7 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00B1B5B51C471F9800784F4C /* ControlView.m in Sources */,
-				00E6697B1C46C41700F97EAC /* PlayerViewController.m in Sources */,
+				00E6697B1C46C41700F97EAC /* PlayerTableViewController.m in Sources */,
 				00B1B5B81C4720C900784F4C /* GradientView.m in Sources */,
 				00B1B5BE1C472CF300784F4C /* PlayerTableViewDataSource.m in Sources */,
 				00E669A81C46C43C00F97EAC /* SoundManager.m in Sources */,
@@ -348,14 +289,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		00E669901C46C41700F97EAC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				00E669991C46C41700F97EAC /* Sound_Manager_DemoUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -363,11 +296,6 @@
 			isa = PBXTargetDependency;
 			target = 00E6696F1C46C41600F97EAC /* Sound Manager Demo */;
 			targetProxy = 00E6698A1C46C41700F97EAC /* PBXContainerItemProxy */;
-		};
-		00E669961C46C41700F97EAC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 00E6696F1C46C41600F97EAC /* Sound Manager Demo */;
-			targetProxy = 00E669951C46C41700F97EAC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -519,30 +447,6 @@
 			};
 			name = Release;
 		};
-		00E669A41C46C41700F97EAC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Sound Manager DemoUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Michael-MacCallum.Sound-Manager-DemoUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Sound Manager Demo";
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		00E669A51C46C41700F97EAC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Sound Manager DemoUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Michael-MacCallum.Sound-Manager-DemoUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Sound Manager Demo";
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -569,15 +473,6 @@
 			buildConfigurations = (
 				00E669A11C46C41700F97EAC /* Debug */,
 				00E669A21C46C41700F97EAC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		00E669A31C46C41700F97EAC /* Build configuration list for PBXNativeTarget "Sound Manager DemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				00E669A41C46C41700F97EAC /* Debug */,
-				00E669A51C46C41700F97EAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

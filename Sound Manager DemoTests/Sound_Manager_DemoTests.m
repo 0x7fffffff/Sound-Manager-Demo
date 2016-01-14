@@ -7,8 +7,13 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "SoundManager.h"
+#import "Sound.h"
 
 @interface Sound_Manager_DemoTests : XCTestCase
+
+@property(strong, nonatomic) SoundManager *manager;
+@property(strong, nonatomic) Sound *sound;
 
 @end
 
@@ -16,7 +21,9 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+
+    self.manager = [SoundManager sharedManager];
+    self.sound = [self.manager soundAtIndex:0];
 }
 
 - (void)tearDown {
@@ -24,16 +31,59 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testLookup
+{
+    XCTAssertNotNil(self.sound);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testQueuePosition
+{
+    NSUInteger testExcluded = [self.manager queuePositionOfSound:self.sound];
+    XCTAssertEqual(testExcluded, NSNotFound);
+    [self.manager enqueueSound:self.sound];
+    NSUInteger testIncluded = [self.manager queuePositionOfSound:self.sound];
+    XCTAssertNotEqual(testIncluded, NSNotFound);
+}
+
+- (void)testLoadDefaultSounds
+{
+    // -loadDefaultSoundsReplaceExisting: will be called in the root view controller.
+    XCTAssertEqual(self.manager.availableSounds.count, 26);
+}
+
+- (void)testPlay
+{
+    [self.manager playSound:self.sound beginImmediately:YES];
+    
+    XCTAssertTrue(self.manager.isPlaying);
+}
+
+- (void)testPauseIfPlaying
+{
+    if (self.manager.isPlaying) {
+        [self.manager pause];
+        
+        XCTAssertFalse(self.manager.isPlaying);
+    }
+}
+
+- (void)testPauseIfNotPlaying
+{
+    if (!self.manager.isPlaying) {
+        [self.manager pause];
+        
+        XCTAssertFalse(self.manager.isPlaying);
+    }
+}
+
+- (void)testStopIfPlaying
+{
+    
+}
+
+- (void)testStopIfNotPlaying
+{
+    
 }
 
 @end
