@@ -114,6 +114,7 @@
 		00E669721C46C41600F97EAC /* Sound Manager Demo */ = {
 			isa = PBXGroup;
 			children = (
+				00B1B5C21C4743CC00784F4C /* VersionChecks.h */,
 				00E669761C46C41700F97EAC /* AppDelegate.h */,
 				00E669771C46C41700F97EAC /* AppDelegate.m */,
 				00E669791C46C41700F97EAC /* PlayerViewController.h */,
