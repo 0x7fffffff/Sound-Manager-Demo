@@ -10,13 +10,26 @@
 @class Sound;
 
 /**
+ *  <#Description#>
+ */
+extern NSString * _Nonnull const SoundManagerDidChangePlaybackStateNotification;
+extern NSString * _Nonnull const SoundManagerDidChangeCurrentlyPlayingSoundNotification;
+
+/**
  *  SoundManager is a class that facilitates the playing of sounds. It allows you to play a 
  *  <code>Sound</code> object either immediately, or by enqueuing it. You should only ever attempt to
  *  access an instance of this class through its singleton reference <code>-sharedManager</code>.
  */
 @interface SoundManager : NSObject
 
-@property (strong, nonatomic, readonly) NSMutableArray<Sound *> * _Nonnull availableSounds;
+/**
+ *  <#Description#>
+ *
+ *  @discussion This class is KVO compliant for this selector.
+ */
+@property (strong, nonatomic, readonly, nullable) Sound *currentlyPlayingSound;
+@property (strong, nonatomic, readonly, nullable) NSProgress *currentlyPlayingSoundProgress;
+@property (strong, nonatomic, readonly, nonnull) NSMutableArray<Sound *> *availableSounds;
 
 /**
  *  A singleton reference to the <code>SoundManager</code> class. Not thread safe.
@@ -44,6 +57,7 @@
 
 /**
  *  Returns whether or not the manager's underlying player is currently playing a sound.
+ *  @discussion This class is KVO compliant for this selector.
  */
 @property (nonatomic, assign, getter=isPlaying) BOOL playing;
 
@@ -75,6 +89,15 @@
  *  Looks up the Sound at the specified index in the <code>availableSounds</code> array.
  */
 - (Sound * _Nullable)soundAtIndex:(NSInteger)index;
+
+/**
+ *  <#Description#>
+ *
+ *  @param sound <#sound description#>
+ *
+ *  @return <#return value description#>
+ */
+- (NSUInteger)queuePositionOfSound:(Sound * _Nullable)sound;
 
 /**
  *  If a "Sounds" folder exists in the main bundle, load any sound files within it into

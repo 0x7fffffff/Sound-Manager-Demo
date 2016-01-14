@@ -10,22 +10,42 @@
 #import "SoundManager.h"
 #import "Sound.h"
 
+NSString *const SoundManagerDidChangePlaybackStateNotification = @"SoundManagerDidChangePlaybackStateNotification";
+NSString *const SoundManagerDidChangeCurrentlyPlayingSoundNotification = @"SoundManagerDidChangePlaybackStateNotification";
+
+//
+static void *currentPlayerTimeContext = &currentPlayerTimeContext;
+
 @interface SoundManager () <AVAudioPlayerDelegate>
 
-@property (strong, nonatomic) NSMutableArray<Sound *> * _Nonnull queue;
-@property (strong, nonatomic) AVAudioPlayer * _Nullable player;
+@property (strong, nonatomic, readwrite, nullable) Sound *currentlyPlayingSound;
+@property (strong, nonatomic, readwrite, nullable) NSProgress *currentlyPlayingSoundProgress;
+/**
+ *  <#Description#>
+ */
+@property (strong, nonatomic, nonnull) NSMutableArray<Sound *> *queue;
+
+/**
+ *  <#Description#>
+ */
+@property (strong, nonatomic, nullable) AVAudioPlayer *player;
+
+@property (strong, nonatomic, nullable) NSTimer *soundProgressTimer;
 
 @end
 
 @implementation SoundManager
 @synthesize availableSounds = _availableSounds;
 
-- (BOOL)isPlaying
-{
-    return self.player && self.player.isPlaying;
-}
+// Documented publicly
+//- (BOOL)isPlaying
+//{
+//    return self.player && self.player.isPlaying;
+//}
 
 #pragma MARK - Lifecycle
+
+// Documented publicly
 + (_Nonnull instancetype)sharedManager
 {
     static SoundManager *manager = nil;
@@ -37,9 +57,50 @@
     return manager;
 }
 
+/**
+ *  A private initializer which only exists in this form because <code>-init</code> has been marked
+ *  as unavailable to prevent this class from being directly instantiate by the outside world.
+ *
+ *  @return An instance of SoundManager
+ */
 - (_Nonnull instancetype)_init
 {
     return self = [super init];
+}
+
+/**
+ *  <#Description#>
+ *
+ *  @param currentlyPlayingSound <#currentlyPlayingSound description#>
+ */
+- (void)setCurrentlyPlayingSound:(Sound * _Nullable)currentlyPlayingSound
+{
+    if (![currentlyPlayingSound isEqual:_currentlyPlayingSound]) {
+        [self willChangeValueForKey:NSStringFromSelector(@selector(currentlyPlayingSound))];
+        _currentlyPlayingSound = currentlyPlayingSound;
+        [self didChangeValueForKey:NSStringFromSelector(@selector(currentlyPlayingSound))];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:SoundManagerDidChangeCurrentlyPlayingSoundNotification
+                                                            object:nil];
+    }
+    
+    self.playing = self.player && self.player.isPlaying && self.currentlyPlayingSound;
+}
+
+- (void)setPlaying:(BOOL)playing
+{
+    if (_playing) {
+        
+    }
+    
+    if (playing != _playing) {
+        [self willChangeValueForKey:NSStringFromSelector(@selector(isPlaying))];
+        _playing = playing;
+        [self didChangeValueForKey:NSStringFromSelector(@selector(isPlaying))];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:SoundManagerDidChangePlaybackStateNotification
+                                                            object:nil];
+    }
 }
 
 - (NSMutableArray<Sound *> * _Nonnull)availableSounds
@@ -60,6 +121,40 @@
     return _queue;
 }
 
+- (void)setPlayer:(AVAudioPlayer *)player
+{
+    // Dance around KVO not allow checks for who's observing whom.
+    if (_player) {
+        [self stopObservingPlayer:_player];
+    }
+    
+    if (player) {
+        [self observePlayer:player];
+    }
+    
+    _player = player;
+}
+
+- (void)observePlayer:(AVAudioPlayer *)player
+{
+    [player addObserver:self
+             forKeyPath:NSStringFromSelector(@selector(isPlaying))
+                options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+                context:currentPlayerTimeContext];
+}
+
+- (void)stopObservingPlayer:(AVAudioPlayer *)player
+{
+    @try {
+        [player removeObserver:self
+                    forKeyPath:NSStringFromSelector(@selector(isPlaying))
+                       context:currentPlayerTimeContext];
+    } @catch (NSException * __unused exception) {
+        // Just in case. Nothing to see here folks.
+    }
+}
+
+// Documented publicly
 - (void)loadDefaultSoundsReplaceExisting:(BOOL)replace
 {
     NSFileManager *manager = [NSFileManager defaultManager];
@@ -76,9 +171,14 @@
         return;
     }
     
+    // Assuming the demo file types are the only ones we'll encounter. Not exhaustive.
+    NSArray *supportedFormats = @[@"aif", @"aiff", @"mp3", @"wav"];
+    
     NSMutableArray *sounds = [[NSMutableArray alloc] initWithCapacity:files.count];
     for (NSURL *fileUrl in files) {
-        [sounds addObject:[[Sound alloc] initWithUrl:fileUrl]];
+        if ([supportedFormats containsObject:fileUrl.pathExtension.lowercaseString]) {
+            [sounds addObject:[[Sound alloc] initWithUrl:fileUrl]];
+        }
     }
 
     if (replace) {
@@ -88,6 +188,7 @@
     [self.availableSounds addObjectsFromArray:sounds];
 }
 
+// Documented publicly
 - (Sound * _Nullable)soundAtIndex:(NSInteger)index
 {
     if (index >= self.availableSounds.count) {
@@ -97,8 +198,14 @@
     return [self.availableSounds objectAtIndex:index];
 }
 
+- (NSUInteger)queuePositionOfSound:(Sound *)sound
+{
+    return [self.queue indexOfObject:sound];
+}
+
 #pragma MARK - Player state
 
+// Documented publicly
 - (BOOL)resume
 {
     if (self.player && !self.player.playing) {
@@ -108,6 +215,7 @@
     return NO;
 }
 
+// Documented publicly
 - (void)pause
 {
     if (self.player) {
@@ -115,11 +223,15 @@
     }
 }
 
+// Documented publicly
 - (void)skip
 {
     [self playNextSound];
 }
 
+/**
+ *  <#Description#>
+ */
 - (void)playNextSound
 {
     Sound *nextSound = self.queue.firstObject;
@@ -129,6 +241,7 @@
     }
 }
 
+// Documented publicly
 - (void)stop
 {
     if (self.player) {
@@ -136,6 +249,11 @@
     }
 }
 
+/**
+ *  Plays the specified sound immediately. If there are any other sounds playing when
+ *  this method is called, they will be cancelled immediately and the new sounds will
+ *  start playing.
+ */
 - (void)playSound:(Sound * _Nonnull)sound
 {
     if (self.player) {
@@ -147,13 +265,14 @@
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:sound.filePath
                                                          error:&audioFileError];
     if (audioFileError) {
-        
+        NSLog(@"%@", audioFileError.localizedDescription);
     }
     
     self.player.delegate = self;
     [self.player play];
 }
 
+// Documented publicly
 - (void)playSound:(Sound * _Nonnull)sound beginImmediately:(BOOL)immediate
 {
     if (immediate) {
@@ -171,6 +290,7 @@
     }
 }
 
+// Documented publicly
 - (void)enqueueSound:(Sound * _Nonnull)sound
 {
     if (self.player && self.player.playing) {
@@ -184,22 +304,17 @@
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
+    // Regardless of the success of the last sound, attempt to play the next one.
     [self playNextSound];
 }
 
-- (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
 {
-    
-}
-
-- (void)audioPlayerBeginInterruption:(AVAudioPlayer *)player
-{
-    
-}
-
-- (void)audioPlayerEndInterruption:(AVAudioPlayer *)player withOptions:(NSUInteger)flags
-{
-    
+    if (context == currentPlayerTimeContext) {
+        NSLog(@"%@", change);
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 @end
