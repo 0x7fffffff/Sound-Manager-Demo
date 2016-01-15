@@ -9,15 +9,17 @@
 #import "AppDelegate.h"
 #import "SoundManager.h"
 
-@interface AppDelegate ()
-
-@end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[SoundManager sharedManager] loadDefaultSoundsReplaceExisting:NO];
+    
+    // Equivalent to global tint color set in interface builder (Crayon - Sky)
+    self.window.tintColor = [UIColor colorWithRed:116.0 / 255.0
+                                            green:208.0 / 255.0
+                                             blue:252.0 / 255.0
+                                            alpha:1.0];
     return YES;
 }
 

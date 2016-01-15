@@ -8,6 +8,9 @@
 
 @import UIKit;
 
+/**
+ *  An object that implements UITableViewDataSource methods for PlayerViewController
+ */
 @interface PlayerTableViewDataSource : NSObject <UITableViewDataSource>
 
 @end

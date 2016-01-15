@@ -10,12 +10,6 @@
 @class Sound;
 
 /**
- *  <#Description#>
- */
-extern NSString * _Nonnull const SoundManagerDidChangePlaybackStateNotification;
-extern NSString * _Nonnull const SoundManagerDidChangeCurrentlyPlayingSoundNotification;
-
-/**
  *  SoundManager is a class that facilitates the playing of sounds. It allows you to play a 
  *  <code>Sound</code> object either immediately, or by enqueuing it. You should only ever attempt to
  *  access an instance of this class through its singleton reference <code>-sharedManager</code>.
@@ -23,12 +17,20 @@ extern NSString * _Nonnull const SoundManagerDidChangeCurrentlyPlayingSoundNotif
 @interface SoundManager : NSObject
 
 /**
- *  <#Description#>
+ *  A reference to the Sound object currently being played by the sharedManager.
  *
  *  @discussion This class is KVO compliant for this selector.
  */
 @property (strong, nonatomic, readonly, nullable) Sound *currentlyPlayingSound;
-@property (strong, nonatomic, readonly, nullable) NSProgress *currentlyPlayingSoundProgress;
+
+/**
+ *  An array of sounds available to the sound manager. Usage of this array is not required,
+ *  but it provides an easy way to allow the sound manager to keep your sound objects alive
+ *  to be looked up and played later.
+ *
+ *  @see    soundAtIndex:
+ *  @see    availabilityPositionOfSound:
+ */
 @property (strong, nonatomic, readonly, nonnull) NSMutableArray<Sound *> *availableSounds;
 
 /**
@@ -57,9 +59,8 @@ extern NSString * _Nonnull const SoundManagerDidChangeCurrentlyPlayingSoundNotif
 
 /**
  *  Returns whether or not the manager's underlying player is currently playing a sound.
- *  @discussion This class is KVO compliant for this selector.
  */
-@property (nonatomic, assign, getter=isPlaying) BOOL playing;
+@property (nonatomic, assign, getter=isPlaying, readonly) BOOL playing;
 
 /**
  *  Resumes playback if the underlying player is paused. Otherwise, does nothing.
@@ -81,7 +82,8 @@ extern NSString * _Nonnull const SoundManagerDidChangeCurrentlyPlayingSoundNotif
 - (void)skip;
 
 /**
- *  If the underlying player is currently playing, stops it. Otherwise, does nothing.
+ *  If the underlying player is currently playing, stops it. Otherwise, resets the sound's
+ *  play time to zero.
  */
 - (void)stop;
 
@@ -91,13 +93,20 @@ extern NSString * _Nonnull const SoundManagerDidChangeCurrentlyPlayingSoundNotif
 - (Sound * _Nullable)soundAtIndex:(NSInteger)index;
 
 /**
- *  <#Description#>
+ *  Attempts to find the index of the specified Sound in the queue.
  *
- *  @param sound <#sound description#>
- *
- *  @return <#return value description#>
+ *  @return Either the first index containing a sound equal to <code>sound</code>, or
+ *          <code>NSNotFound</code> if the Sound isn't found.
  */
-- (NSUInteger)queuePositionOfSound:(Sound * _Nullable)sound;
+- (NSInteger)queuePositionOfSound:(Sound * _Nullable)sound;
+
+/**
+ *  Attempts to find the index of the specified Sound in the availableSounds array.
+ *
+ *  @return Either the first index containing a sound equal to <code>sound</code>, or
+ *          <code>NSNotFound</code> if the Sound isn't found.
+ */
+- (NSInteger)availabilityPositionOfSound:(Sound * _Nullable)sound;
 
 /**
  *  If a "Sounds" folder exists in the main bundle, load any sound files within it into

@@ -27,7 +27,12 @@
 
 - (NSString * _Nullable)fileName
 {
-    return [self.filePath lastPathComponent];
+    return [[self.filePath lastPathComponent] stringByDeletingPathExtension];
+}
+
+- (NSString * _Nullable)fileExtension
+{
+    return [self.filePath pathExtension];
 }
 
 - (BOOL)isEqual:(id)object

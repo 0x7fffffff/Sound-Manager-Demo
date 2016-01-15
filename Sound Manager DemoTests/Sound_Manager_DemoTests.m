@@ -38,16 +38,28 @@
 
 - (void)testQueuePosition
 {
-    NSUInteger testExcluded = [self.manager queuePositionOfSound:self.sound];
+    NSInteger testExcluded = [self.manager queuePositionOfSound:self.sound];
     XCTAssertEqual(testExcluded, NSNotFound);
     [self.manager enqueueSound:self.sound];
-    NSUInteger testIncluded = [self.manager queuePositionOfSound:self.sound];
+    NSInteger testIncluded = [self.manager queuePositionOfSound:self.sound];
     XCTAssertNotEqual(testIncluded, NSNotFound);
+}
+
+- (void)testAvailabilityPosition
+{
+    NSInteger included = [self.manager availabilityPositionOfSound:self.sound];
+    XCTAssertNotEqual(included, NSNotFound);
+    
+    Sound *dummySound = [[Sound alloc] initWithUrl:[[NSURL alloc] init]];
+    NSInteger excluded = [self.manager availabilityPositionOfSound:dummySound];
+    XCTAssertEqual(excluded, NSNotFound);
 }
 
 - (void)testLoadDefaultSounds
 {
     // -loadDefaultSoundsReplaceExisting: will be called in the root view controller.
+    XCTAssertEqual(self.manager.availableSounds.count, 26);
+    [self.manager loadDefaultSoundsReplaceExisting:YES];
     XCTAssertEqual(self.manager.availableSounds.count, 26);
 }
 

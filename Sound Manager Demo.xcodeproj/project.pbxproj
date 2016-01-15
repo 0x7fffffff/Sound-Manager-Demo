@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00B1B5B51C471F9800784F4C /* ControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1B5B41C471F9800784F4C /* ControlView.m */; };
-		00B1B5B81C4720C900784F4C /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1B5B71C4720C900784F4C /* GradientView.m */; };
+		0004F2A21C48940700F98514 /* LightStatusBarNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0004F2A11C48940700F98514 /* LightStatusBarNavigationController.m */; };
+		0004F2A81C48A6FC00F98514 /* UIColor+Darken.m in Sources */ = {isa = PBXBuildFile; fileRef = 0004F2A71C48A6FC00F98514 /* UIColor+Darken.m */; };
 		00B1B5BB1C472CE500784F4C /* PlayerTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1B5BA1C472CE500784F4C /* PlayerTableViewDelegate.m */; };
 		00B1B5BE1C472CF300784F4C /* PlayerTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1B5BD1C472CF300784F4C /* PlayerTableViewDataSource.m */; };
 		00E669751C46C41700F97EAC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E669741C46C41700F97EAC /* main.m */; };
 		00E669781C46C41700F97EAC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E669771C46C41700F97EAC /* AppDelegate.m */; };
-		00E6697B1C46C41700F97EAC /* PlayerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E6697A1C46C41700F97EAC /* PlayerTableViewController.m */; };
+		00E6697B1C46C41700F97EAC /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E6697A1C46C41700F97EAC /* PlayerViewController.m */; };
 		00E6697E1C46C41700F97EAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00E6697C1C46C41700F97EAC /* Main.storyboard */; };
 		00E669801C46C41700F97EAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00E6697F1C46C41700F97EAC /* Assets.xcassets */; };
 		00E669831C46C41700F97EAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00E669811C46C41700F97EAC /* LaunchScreen.storyboard */; };
@@ -21,7 +21,6 @@
 		00E669A81C46C43C00F97EAC /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E669A71C46C43C00F97EAC /* SoundManager.m */; };
 		00E669AA1C46C5E400F97EAC /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 00E669A91C46C5E400F97EAC /* Sounds */; };
 		00E669AD1C46C61500F97EAC /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E669AC1C46C61500F97EAC /* Sound.m */; };
-		00E669B11C46D1E800F97EAC /* PlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E669B01C46D1E800F97EAC /* PlayerTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00B1B5B31C471F9800784F4C /* ControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlView.h; sourceTree = "<group>"; };
-		00B1B5B41C471F9800784F4C /* ControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlView.m; sourceTree = "<group>"; };
-		00B1B5B61C4720C900784F4C /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
-		00B1B5B71C4720C900784F4C /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		0004F2A01C48940700F98514 /* LightStatusBarNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightStatusBarNavigationController.h; sourceTree = "<group>"; };
+		0004F2A11C48940700F98514 /* LightStatusBarNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightStatusBarNavigationController.m; sourceTree = "<group>"; };
+		0004F2A61C48A6FC00F98514 /* UIColor+Darken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Darken.h"; sourceTree = "<group>"; };
+		0004F2A71C48A6FC00F98514 /* UIColor+Darken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Darken.m"; sourceTree = "<group>"; };
 		00B1B5B91C472CE500784F4C /* PlayerTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewDelegate.h; sourceTree = "<group>"; };
 		00B1B5BA1C472CE500784F4C /* PlayerTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewDelegate.m; sourceTree = "<group>"; };
 		00B1B5BC1C472CF300784F4C /* PlayerTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewDataSource.h; sourceTree = "<group>"; };
@@ -48,8 +47,8 @@
 		00E669741C46C41700F97EAC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		00E669761C46C41700F97EAC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		00E669771C46C41700F97EAC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		00E669791C46C41700F97EAC /* PlayerTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewController.h; sourceTree = "<group>"; };
-		00E6697A1C46C41700F97EAC /* PlayerTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewController.m; sourceTree = "<group>"; };
+		00E669791C46C41700F97EAC /* PlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		00E6697A1C46C41700F97EAC /* PlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		00E6697D1C46C41700F97EAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00E6697F1C46C41700F97EAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00E669821C46C41700F97EAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,8 +61,6 @@
 		00E669A91C46C5E400F97EAC /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
 		00E669AB1C46C61500F97EAC /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
 		00E669AC1C46C61500F97EAC /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
-		00E669AF1C46D1E800F97EAC /* PlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewCell.h; sourceTree = "<group>"; };
-		00E669B01C46D1E800F97EAC /* PlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,17 +81,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00B1B5BF1C472D5E00784F4C /* PlayerTableView */ = {
+		0004F2A91C48B67300F98514 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				00B1B5B91C472CE500784F4C /* PlayerTableViewDelegate.h */,
-				00B1B5BA1C472CE500784F4C /* PlayerTableViewDelegate.m */,
+				0004F2A61C48A6FC00F98514 /* UIColor+Darken.h */,
+				0004F2A71C48A6FC00F98514 /* UIColor+Darken.m */,
+				00B1B5C21C4743CC00784F4C /* VersionChecks.h */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		00B1B5BF1C472D5E00784F4C /* PlayerTableViewController */ = {
+			isa = PBXGroup;
+			children = (
 				00B1B5BC1C472CF300784F4C /* PlayerTableViewDataSource.h */,
 				00B1B5BD1C472CF300784F4C /* PlayerTableViewDataSource.m */,
-				00E669AF1C46D1E800F97EAC /* PlayerTableViewCell.h */,
-				00E669B01C46D1E800F97EAC /* PlayerTableViewCell.m */,
+				00B1B5B91C472CE500784F4C /* PlayerTableViewDelegate.h */,
+				00B1B5BA1C472CE500784F4C /* PlayerTableViewDelegate.m */,
+				00E669791C46C41700F97EAC /* PlayerViewController.h */,
+				00E6697A1C46C41700F97EAC /* PlayerViewController.m */,
 			);
-			name = PlayerTableView;
+			path = PlayerTableViewController;
 			sourceTree = "<group>";
 		};
 		00E669671C46C41600F97EAC = {
@@ -118,22 +125,18 @@
 		00E669721C46C41600F97EAC /* Sound Manager Demo */ = {
 			isa = PBXGroup;
 			children = (
-				00B1B5C21C4743CC00784F4C /* VersionChecks.h */,
+				0004F2A91C48B67300F98514 /* Helper */,
+				00B1B5BF1C472D5E00784F4C /* PlayerTableViewController */,
+				00E669AE1C46CF4100F97EAC /* Sound Management */,
+				00E669731C46C41700F97EAC /* Supporting Files */,
 				00E669761C46C41700F97EAC /* AppDelegate.h */,
 				00E669771C46C41700F97EAC /* AppDelegate.m */,
-				00E669791C46C41700F97EAC /* PlayerTableViewController.h */,
-				00E6697A1C46C41700F97EAC /* PlayerTableViewController.m */,
-				00B1B5B61C4720C900784F4C /* GradientView.h */,
-				00B1B5B71C4720C900784F4C /* GradientView.m */,
-				00B1B5B31C471F9800784F4C /* ControlView.h */,
-				00B1B5B41C471F9800784F4C /* ControlView.m */,
-				00B1B5BF1C472D5E00784F4C /* PlayerTableView */,
-				00E669AE1C46CF4100F97EAC /* Sound Management */,
-				00E6697C1C46C41700F97EAC /* Main.storyboard */,
 				00E6697F1C46C41700F97EAC /* Assets.xcassets */,
-				00E669811C46C41700F97EAC /* LaunchScreen.storyboard */,
 				00E669841C46C41700F97EAC /* Info.plist */,
-				00E669731C46C41700F97EAC /* Supporting Files */,
+				00E669811C46C41700F97EAC /* LaunchScreen.storyboard */,
+				0004F2A01C48940700F98514 /* LightStatusBarNavigationController.h */,
+				0004F2A11C48940700F98514 /* LightStatusBarNavigationController.m */,
+				00E6697C1C46C41700F97EAC /* Main.storyboard */,
 			);
 			path = "Sound Manager Demo";
 			sourceTree = "<group>";
@@ -144,14 +147,14 @@
 				00E669A91C46C5E400F97EAC /* Sounds */,
 				00E669741C46C41700F97EAC /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		00E6698C1C46C41700F97EAC /* Sound Manager DemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E6698D1C46C41700F97EAC /* Sound_Manager_DemoTests.m */,
 				00E6698F1C46C41700F97EAC /* Info.plist */,
+				00E6698D1C46C41700F97EAC /* Sound_Manager_DemoTests.m */,
 			);
 			path = "Sound Manager DemoTests";
 			sourceTree = "<group>";
@@ -159,12 +162,12 @@
 		00E669AE1C46CF4100F97EAC /* Sound Management */ = {
 			isa = PBXGroup;
 			children = (
-				00E669A61C46C43C00F97EAC /* SoundManager.h */,
-				00E669A71C46C43C00F97EAC /* SoundManager.m */,
 				00E669AB1C46C61500F97EAC /* Sound.h */,
 				00E669AC1C46C61500F97EAC /* Sound.m */,
+				00E669A61C46C43C00F97EAC /* SoundManager.h */,
+				00E669A71C46C43C00F97EAC /* SoundManager.m */,
 			);
-			name = "Sound Management";
+			path = "Sound Management";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,14 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00B1B5B51C471F9800784F4C /* ControlView.m in Sources */,
-				00E6697B1C46C41700F97EAC /* PlayerTableViewController.m in Sources */,
-				00B1B5B81C4720C900784F4C /* GradientView.m in Sources */,
+				0004F2A81C48A6FC00F98514 /* UIColor+Darken.m in Sources */,
+				00E6697B1C46C41700F97EAC /* PlayerViewController.m in Sources */,
 				00B1B5BE1C472CF300784F4C /* PlayerTableViewDataSource.m in Sources */,
 				00E669A81C46C43C00F97EAC /* SoundManager.m in Sources */,
-				00E669B11C46D1E800F97EAC /* PlayerTableViewCell.m in Sources */,
 				00E669781C46C41700F97EAC /* AppDelegate.m in Sources */,
 				00E669AD1C46C61500F97EAC /* Sound.m in Sources */,
+				0004F2A21C48940700F98514 /* LightStatusBarNavigationController.m in Sources */,
 				00B1B5BB1C472CE500784F4C /* PlayerTableViewDelegate.m in Sources */,
 				00E669751C46C41700F97EAC /* main.m in Sources */,
 			);
@@ -306,6 +308,7 @@
 				00E6697D1C46C41700F97EAC /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		00E669811C46C41700F97EAC /* LaunchScreen.storyboard */ = {
@@ -314,6 +317,7 @@
 				00E669821C46C41700F97EAC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -408,6 +412,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Michael-MacCallum.Sound-Manager-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -420,6 +425,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Michael-MacCallum.Sound-Manager-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

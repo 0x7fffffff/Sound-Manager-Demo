@@ -8,6 +8,9 @@
 
 @import UIKit;
 
+/**
+ *  An object that implements UITableViewDelegate methods for PlayerViewController
+ */
 @interface PlayerTableViewDelegate : NSObject <UITableViewDelegate>
 
 @end

@@ -10,6 +10,8 @@
 #import "SoundManager.h"
 #import "Sound.h"
 #import "VersionChecks.h"
+#import "AppDelegate.h"
+#import "UIColor+Darken.h"
 
 @implementation PlayerTableViewDelegate
 
@@ -48,23 +50,26 @@
 {
     SoundManager *manager = [SoundManager sharedManager];
     Sound *nextSound = [manager soundAtIndex:indexPath.row];
-    __weak UITableView *wTableView = tableView;
     
     UITableViewRowAction *playNextAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
                                                                               title:@"Next"
                                                                             handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
                                                                                 [manager playSound:nextSound beginImmediately:NO];
-                                                                                [wTableView setEditing:NO animated:YES];
+                                                                                [tableView setEditing:NO animated:YES];
                                                                             }];
     
     UITableViewRowAction *playLastAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
                                                                               title:@"Last"
                                                                             handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
                                                                                 [manager enqueueSound:nextSound];
-                                                                                [wTableView setEditing:NO animated:YES];
+                                                                                [tableView setEditing:NO animated:YES];
                                                                             }];
-    playNextAction.backgroundColor = [UIApplication sharedApplication].keyWindow.tintColor;
-    playLastAction.backgroundColor = [UIApplication sharedApplication].keyWindow.tintColor;
+
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    UIColor *tintColor = appDelegate.window.rootViewController.view.tintColor;
+    
+    playNextAction.backgroundColor = [tintColor darkenedBy:0.3];
+    playLastAction.backgroundColor = tintColor;
     
     return @[playNextAction, playLastAction];
 }
@@ -73,9 +78,7 @@
 {
     SoundManager *manager = [SoundManager sharedManager];
     Sound *soundToPlay = [manager soundAtIndex:indexPath.row];
-    [manager playSound:soundToPlay beginImmediately:YES];
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [manager playSound:soundToPlay beginImmediately:YES];    
 }
 
 @end
