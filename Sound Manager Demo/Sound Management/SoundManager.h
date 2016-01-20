@@ -21,7 +21,7 @@
  *
  *  @discussion This class is KVO compliant for this selector.
  */
-@property (strong, nonatomic, readonly, nullable) Sound *currentlyPlayingSound;
+@property (strong, readonly, nullable) Sound *currentlyPlayingSound;
 
 /**
  *  An array of sounds available to the sound manager. Usage of this array is not required,
@@ -31,13 +31,13 @@
  *  @see    soundAtIndex:
  *  @see    availabilityPositionOfSound:
  */
-@property (strong, nonatomic, readonly, nonnull) NSMutableArray<Sound *> *availableSounds;
+@property (strong, readonly, nonnull) NSMutableArray<Sound *> *availableSounds;
 
 /**
  *  A singleton reference to the <code>SoundManager</code> class. Not thread safe.
  */
 + (_Nonnull instancetype)sharedManager;
--(_Nonnull instancetype) init __attribute__((unavailable("Please use the sharedManager singleton instead.")));
+- (_Nonnull instancetype)init __attribute__((unavailable("Please use the sharedManager singleton instead.")));
 
 /**
  *  Plays the specified sound

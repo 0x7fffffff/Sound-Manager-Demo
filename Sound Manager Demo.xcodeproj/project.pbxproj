@@ -34,8 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0004F2A01C48940700F98514 /* LightStatusBarNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightStatusBarNavigationController.h; sourceTree = "<group>"; };
-		0004F2A11C48940700F98514 /* LightStatusBarNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightStatusBarNavigationController.m; sourceTree = "<group>"; };
+		0004F2A01C48940700F98514 /* LightStatusBarNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LightStatusBarNavigationController.h; path = ../LightStatusBarNavigationController.h; sourceTree = "<group>"; };
+		0004F2A11C48940700F98514 /* LightStatusBarNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LightStatusBarNavigationController.m; path = ../LightStatusBarNavigationController.m; sourceTree = "<group>"; };
 		0004F2A61C48A6FC00F98514 /* UIColor+Darken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Darken.h"; sourceTree = "<group>"; };
 		0004F2A71C48A6FC00F98514 /* UIColor+Darken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Darken.m"; sourceTree = "<group>"; };
 		00B1B5B91C472CE500784F4C /* PlayerTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewDelegate.h; sourceTree = "<group>"; };
@@ -94,6 +94,8 @@
 		00B1B5BF1C472D5E00784F4C /* PlayerTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0004F2A01C48940700F98514 /* LightStatusBarNavigationController.h */,
+				0004F2A11C48940700F98514 /* LightStatusBarNavigationController.m */,
 				00B1B5BC1C472CF300784F4C /* PlayerTableViewDataSource.h */,
 				00B1B5BD1C472CF300784F4C /* PlayerTableViewDataSource.m */,
 				00B1B5B91C472CE500784F4C /* PlayerTableViewDelegate.h */,
@@ -134,8 +136,6 @@
 				00E6697F1C46C41700F97EAC /* Assets.xcassets */,
 				00E669841C46C41700F97EAC /* Info.plist */,
 				00E669811C46C41700F97EAC /* LaunchScreen.storyboard */,
-				0004F2A01C48940700F98514 /* LightStatusBarNavigationController.h */,
-				0004F2A11C48940700F98514 /* LightStatusBarNavigationController.m */,
 				00E6697C1C46C41700F97EAC /* Main.storyboard */,
 			);
 			path = "Sound Manager Demo";

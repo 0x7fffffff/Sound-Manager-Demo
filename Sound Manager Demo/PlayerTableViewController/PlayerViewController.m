@@ -25,7 +25,7 @@ static void *currentlyPlayingSoundContext = &currentlyPlayingSoundContext;
 
 @implementation PlayerViewController
 
-#pragma MARK - Lifecycle
+#pragma mark - Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -50,7 +50,7 @@ static void *currentlyPlayingSoundContext = &currentlyPlayingSoundContext;
     }
 }
 
-#pragma MARK: - KVO
+#pragma mark - KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary<NSString *,id> *)change

@@ -20,7 +20,7 @@
 /**
  *  A queue of Sounds that will be automatically played as the previous sounds finish.
  */
-@property (strong, nonatomic, nonnull) NSMutableArray<Sound *> *queue;
+@property (strong, atomic, nonnull, readonly) NSMutableArray<Sound *> *queue;
 
 /**
  *  The underlying AVAudioPlayer responsible for playing sound files specified by the
@@ -31,10 +31,10 @@
 @end
 
 @implementation SoundManager
-@synthesize availableSounds = _availableSounds;
+@synthesize availableSounds = _availableSounds, queue = _queue;
 
 
-#pragma MARK - Lifecycle
+#pragma mark - Lifecycle
 
 // Documented publicly
 + (_Nonnull instancetype)sharedManager
@@ -50,7 +50,7 @@
 
 /**
  *  A private initializer which only exists in this form because <code>-init</code> has been marked
- *  as unavailable to prevent this class from being directly instantiate by the outside world.
+ *  as unavailable to prevent this class from being directly instantiated by the outside world.
  *
  *  @return An instance of SoundManager
  */
@@ -73,7 +73,7 @@
 // Documented publicly
 - (NSMutableArray<Sound *> * _Nonnull)availableSounds
 {
-    if (_availableSounds == nil) {
+    if (!_availableSounds) {
         _availableSounds = [[NSMutableArray<Sound *> alloc] init];
     }
     
@@ -82,7 +82,7 @@
 
 - (NSMutableArray<Sound *> * _Nonnull)queue
 {
-    if (_queue == nil) {
+    if (!_queue) {
         _queue = [[NSMutableArray<Sound *> alloc] init];
     }
     
@@ -146,7 +146,7 @@
     return [self.availableSounds indexOfObject:sound];
 }
 
-#pragma MARK - Player state
+#pragma mark - Player state
 
 // Documented publicly
 - (BOOL)resume
@@ -250,7 +250,7 @@
     }
 }
 
-#pragma MARK - AVAudioPlayerDelegate
+#pragma mark - AVAudioPlayerDelegate
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player
                        successfully:(BOOL)flag
